@@ -1,0 +1,23 @@
+{
+  "name": "SSH Diagnostics",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  
+  "features": {
+    "./local-features/noop": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "moby": false
+    }
+  },
+  "overrideFeatureInstallOrder": [
+    "./local-features/noop",
+    "ghcr.io/devcontainers/features/common-utils",
+    "ghcr.io/devcontainers/features/docker-in-docker"
+  ],
+
+  "postCreateCommand": "echo '=== SSH Agent Forwarding ===' && echo \"SSH_AUTH_SOCK=$SSH_AUTH_SOCK\" && ls -la \"$SSH_AUTH_SOCK\" 2>&1 || echo 'Socket not found'"
+}

@@ -1,0 +1,7 @@
+{
+    "id": "noop",
+    "version": "1.0.0",
+    "name": "No-op Debug Feature",
+    "description": "A minimal feature with an entrypoint to debug startup chaining",
+    "entrypoint": "/usr/local/bin/noop-entrypoint.sh",
+}
